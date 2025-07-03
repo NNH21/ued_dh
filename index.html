@@ -457,14 +457,12 @@
             
             // Công thức: Chuyên cần x 0.2 + Giữa kì x 0.3 + Cuối kì x 0.5
             const subjectGPA10 = attendanceScore * 0.2 + midterm * 0.3 + final * 0.5;
-            // Làm tròn điểm hệ 10 đến 1 chữ số thập phân
-            const roundedGPA10 = Math.round(subjectGPA10 * 10) / 10;
-            const subjectGPA4 = convertToGPA4(roundedGPA10);
+            const subjectGPA4 = convertToGPA4(subjectGPA10);
             
             return {
-                gpa10: roundedGPA10,
+                gpa10: Math.round(subjectGPA10 * 100) / 100,
                 gpa4: subjectGPA4,
-                letterGrade: getLetterGrade(roundedGPA10)
+                letterGrade: getLetterGrade(subjectGPA10)
             };
         }
 
@@ -502,7 +500,7 @@
                 });
             });
             
-            const overallGPA10 = Math.round((totalGPA10 / totalCredits) * 10) / 10;
+            const overallGPA10 = Math.round((totalGPA10 / totalCredits) * 100) / 100;
             const overallGPA4 = Math.round((totalGPA4 / totalCredits) * 100) / 100;
             const academicRank = getAcademicRank(overallGPA4);
             
