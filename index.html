@@ -11,11 +11,19 @@
             box-sizing: border-box;
         }
 
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            /* Improve touch experience */
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .container {
@@ -83,12 +91,23 @@
             border-radius: 8px;
             font-size: 16px;
             transition: all 0.3s ease;
+            -webkit-appearance: none; /* Remove default styling on iOS */
+            -moz-appearance: none; /* Remove default styling on Firefox */
+            appearance: none;
         }
 
         input:focus, select:focus {
             outline: none;
             border-color: #4facfe;
             box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+            /* Ensure minimum touch target size */
+            min-height: 44px;
+        }
+
+        /* Better touch targets */
+        .btn, .remove-btn {
+            min-height: 44px;
+            touch-action: manipulation;
         }
 
         .subject-item {
@@ -133,6 +152,15 @@
             gap: 15px;
         }
 
+        /* Flexible button container */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
         .btn {
             padding: 12px 25px;
             border: none;
@@ -142,6 +170,9 @@
             font-weight: 600;
             transition: all 0.3s ease;
             margin: 5px;
+            min-width: 140px;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -194,10 +225,12 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+            overflow-x: auto; /* Allow horizontal scrolling on small screens */
         }
 
         .grade-table {
             width: 100%;
+            min-width: 500px; /* Minimum width to prevent excessive compression */
             border-collapse: collapse;
             margin-top: 10px;
         }
@@ -223,23 +256,203 @@
             color: #721c24;
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 1200px) {
             .container {
-                margin: 10px;
+                max-width: 95%;
+                margin: 10px auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                margin: 0;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+                margin-bottom: 8px;
+            }
+            
+            .header p {
+                font-size: 1em;
             }
             
             .content {
-                padding: 20px;
+                padding: 15px;
+            }
+            
+            .section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .section h2 {
+                font-size: 1.3em;
+                margin-bottom: 15px;
             }
             
             .score-inputs {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
             
             .subject-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
+            }
+            
+            .subject-name {
+                font-size: 0.9em;
+            }
+            
+            .remove-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .result-item {
+                flex-direction: column;
+                text-align: left;
+                gap: 5px;
+            }
+            
+            .result-item span:last-child {
+                font-weight: bold;
+                color: #e3f2fd;
+            }
+            
+            .grade-table {
+                font-size: 12px;
+            }
+            
+            .grade-table th,
+            .grade-table td {
+                padding: 6px 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .header p {
+                font-size: 0.9em;
+            }
+            
+            .content {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.2em;
+            }
+            
+            input, select {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .subject-item {
+                padding: 15px;
+            }
+            
+            .btn {
+                padding: 12px;
+                font-size: 13px;
+            }
+            
+            .grade-table {
+                font-size: 10px;
+            }
+            
+            .grade-table th,
+            .grade-table td {
+                padding: 4px 2px;
+            }
+            
+            .result {
+                padding: 15px;
+            }
+            
+            .result h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 1.4em;
+            }
+            
+            .section h2 {
+                font-size: 1.1em;
+            }
+            
+            .grade-table {
+                font-size: 9px;
+            }
+            
+            .grade-table th,
+            .grade-table td {
+                padding: 3px 1px;
+            }
+            
+            input, select {
+                padding: 8px;
+                font-size: 13px;
+            }
+        }
+
+        /* Landscape orientation for tablets */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .score-inputs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .subject-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /* Portrait orientation for tablets */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .container {
+                max-width: 90%;
+            }
+            
+            .score-inputs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .content {
+                padding: 25px;
             }
         }
     </style>
@@ -285,8 +498,10 @@
             <div class="section">
                 <h2>📚 Nhập Thông Tin Môn Học</h2>
                 <div id="subjects"></div>
-                <button class="btn btn-primary" onclick="addSubject()">➕ Thêm Môn Học</button>
-                <button class="btn btn-success" onclick="calculateGPA()">🧮 Tính Điểm</button>
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="addSubject()">➕ Thêm Môn Học</button>
+                    <button class="btn btn-success" onclick="calculateGPA()">🧮 Tính Điểm</button>
+                </div>
             </div>
 
             <!-- Kết quả -->
