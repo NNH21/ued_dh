@@ -225,21 +225,22 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
-            overflow-x: auto; /* Allow horizontal scrolling on small screens */
         }
 
         .grade-table {
             width: 100%;
-            min-width: 500px; /* Minimum width to prevent excessive compression */
             border-collapse: collapse;
             margin-top: 10px;
+            font-size: 14px;
         }
 
         .grade-table th,
         .grade-table td {
-            padding: 10px;
+            padding: 8px 4px;
             text-align: center;
             border: 1px solid #dee2e6;
+            word-wrap: break-word;
+            hyphens: auto;
         }
 
         .grade-table th {
@@ -254,6 +255,35 @@
         .fail-row {
             background: #f8d7da !important;
             color: #721c24;
+        }
+
+        /* Tối ưu hóa bảng cho thiết bị nhỏ */
+        @media (max-width: 600px) {
+            .grade-table th:nth-child(1),
+            .grade-table td:nth-child(1) {
+                width: 8%;
+            }
+            
+            .grade-table th:nth-child(2),
+            .grade-table td:nth-child(2) {
+                width: 25%;
+                font-size: 0.85em;
+            }
+            
+            .grade-table th:nth-child(3),
+            .grade-table td:nth-child(3) {
+                width: 15%;
+            }
+            
+            .grade-table th:nth-child(4),
+            .grade-table td:nth-child(4) {
+                width: 15%;
+            }
+            
+            .grade-table th:nth-child(5),
+            .grade-table td:nth-child(5) {
+                width: 20%;
+            }
         }
 
         /* Responsive Design */
@@ -339,13 +369,30 @@
                 color: #e3f2fd;
             }
             
+            .grade-scale {
+                padding: 15px;
+                overflow-x: visible;
+            }
+            
             .grade-table {
-                font-size: 12px;
+                font-size: 11px;
             }
             
             .grade-table th,
             .grade-table td {
-                padding: 6px 4px;
+                padding: 6px 2px;
+                font-size: 10px;
+                line-height: 1.2;
+            }
+            
+            .grade-table th {
+                font-weight: bold;
+                white-space: nowrap;
+            }
+            
+            .grade-table td:nth-child(2) {
+                font-size: 9px;
+                white-space: nowrap;
             }
         }
 
@@ -385,13 +432,33 @@
                 font-size: 13px;
             }
             
+            .grade-scale {
+                padding: 10px;
+            }
+            
             .grade-table {
-                font-size: 10px;
+                font-size: 9px;
             }
             
             .grade-table th,
             .grade-table td {
-                padding: 4px 2px;
+                padding: 4px 1px;
+                font-size: 8px;
+                line-height: 1.1;
+            }
+            
+            .grade-table th {
+                font-weight: bold;
+                background: #4facfe;
+                color: white;
+            }
+            
+            .grade-table td:nth-child(1) {
+                font-weight: bold;
+            }
+            
+            .grade-table td:nth-child(2) {
+                font-size: 7px;
             }
             
             .result {
@@ -412,13 +479,27 @@
                 font-size: 1.1em;
             }
             
+            .grade-scale {
+                padding: 8px;
+            }
+            
             .grade-table {
-                font-size: 9px;
+                font-size: 8px;
             }
             
             .grade-table th,
             .grade-table td {
                 padding: 3px 1px;
+                font-size: 7px;
+                line-height: 1.0;
+            }
+            
+            .grade-table th {
+                font-weight: bold;
+            }
+            
+            .grade-table td:nth-child(2) {
+                font-size: 6px;
             }
             
             input, select {
