@@ -63,10 +63,17 @@
             /* Ẩn thanh cuộn cho container */
             scrollbar-width: none;
             -ms-overflow-style: none;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 40px);
         }
 
         .container::-webkit-scrollbar {
             display: none;
+        }
+
+        .main-content {
+            flex: 1;
         }
 
         .header {
@@ -78,15 +85,63 @@
             overflow: hidden;
         }
 
-        .header::before {
-            content: '';
+        /* Logo styling */
+        .logo-container {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 6s ease-in-out infinite;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #6366f1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .logo-fallback {
+            font-size: 16px;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        .brand-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            opacity: 0.95;
         }
 
         @keyframes float {
@@ -1235,6 +1290,28 @@
                 height: 8px;
                 border-width: 2.5px;
             }
+            
+            /* Logo responsive */
+            .logo-container {
+                top: 15px;
+                right: 20px;
+                padding: 6px 12px;
+            }
+            
+            .logo {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+            
+            .logo img {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .brand-text {
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1260,14 +1337,120 @@
                 height: 7px;
                 border-width: 2px;
             }
+            
+            /* Logo responsive for mobile */
+            .logo-container {
+                top: 10px;
+                right: 15px;
+                padding: 5px 10px;
+            }
+            
+            .logo {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+            
+            .logo img {
+                width: 24px;
+                height: 24px;
+            }
+            
+            .brand-text {
+                font-size: 10px;
+            }
+        }
+
+        /* Footer styling */
+        .footer {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #a5f3fc;
+        }
+
+        .footer-brand .brand-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            overflow: hidden;
+        }
+
+        .footer-brand .brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .footer-brand .brand-icon-fallback {
+            font-size: 12px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .footer {
+                padding: 15px 20px;
+            }
+            
+            .footer-text {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🎓 Tính Điểm Đại Học</h1>
-            <p>Tính điểm trung bình và xếp loại học lực theo thang điểm 10 và 4</p>
+        <div class="main-content">
+            <div class="header">
+                <!-- Logo/Brand -->
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="logo.jpg" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <span class="logo-fallback" style="display: none;">📚</span>
+                    </div>
+                    <span class="brand-text">HoangDev21</span>
+                </div>
+                
+                <h1>🎓 Tính Điểm Đại Học</h1>
+                <p>Tính điểm trung bình và xếp loại học lực theo thang điểm 10 và 4</p>
+            </div>
         </div>
 
         <div class="content">
@@ -1315,16 +1498,27 @@
                 <div class="result">
                     <h3>📋 Kết Quả Tổng Hợp</h3>
                     <div id="resultContent"></div>
-                </div>
+                </div>                </div>
             </div>
         </div>
-    </div>
+
 
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <div class="ripple"></div>
         <div class="arrow"></div>
     </div>
+
+    <!-- Optional: Watermark (uncomment if you prefer this style) -->
+    <!-- 
+    <div class="watermark">
+        <div class="watermark-logo">
+            <img src="logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="watermark-logo-fallback" style="display: none;">📚</span>
+        </div>
+        <div class="watermark-text">By [YourName]</div>
+    </div>
+    -->
 
     <script>
         let subjectCount = 0;

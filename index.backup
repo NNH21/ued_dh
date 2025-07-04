@@ -1094,6 +1094,173 @@
                 padding: 25px;
             }
         }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .back-to-top::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top:hover::before {
+            opacity: 1;
+        }
+
+        .back-to-top .arrow {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            animation: float-arrow 2s ease-in-out infinite;
+        }
+
+        .back-to-top .arrow::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 14px;
+            background: white;
+            left: 50%;
+            top: 3px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .back-to-top .arrow::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 3px solid white;
+            border-right: 3px solid white;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) rotate(-45deg);
+            border-radius: 2px;
+        }
+
+        @keyframes float-arrow {
+            0%, 100% { 
+                transform: translateY(0px); 
+            }
+            50% { 
+                transform: translateY(-3px); 
+            }
+        }
+
+        .back-to-top .ripple {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 2s infinite;
+        }
+
+        @keyframes ripple-animation {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive adjustments for back-to-top */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .back-to-top .arrow {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .back-to-top .arrow::before {
+                width: 2.5px;
+                height: 12px;
+            }
+            
+            .back-to-top .arrow::after {
+                width: 8px;
+                height: 8px;
+                border-width: 2.5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .back-to-top .arrow {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .back-to-top .arrow::before {
+                width: 2px;
+                height: 10px;
+            }
+            
+            .back-to-top .arrow::after {
+                width: 7px;
+                height: 7px;
+                border-width: 2px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1151,6 +1318,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <div class="ripple"></div>
+        <div class="arrow"></div>
     </div>
 
     <script>
@@ -1432,7 +1605,30 @@
         // Thêm môn học đầu tiên khi trang tải
         window.onload = function() {
             addSubject();
+            initBackToTop();
         };
+
+        // Back to Top functionality
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // Show/hide button on scroll
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Smooth scroll to top
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     </script>
 </body>
 </html>
