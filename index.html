@@ -715,8 +715,8 @@
                 });
             });
             
-            const overallGPA10 = (totalGPA10 / totalCredits).toFixed(2);
-            const overallGPA4 = Math.round((totalGPA4 / totalCredits) * 100) / 100;
+            const overallGPA10 = Math.round((totalGPA10 / totalCredits) * 100) / 100;
+            const overallGPA4 = (totalGPA4 / totalCredits).toFixed(2);
             const academicRank = getAcademicRank(overallGPA4);
             
             // Hiển thị kết quả từng môn
@@ -738,7 +738,7 @@
                 </div>
                 <div class="result-item">
                     <span><strong>Điểm TB hệ 10:</strong></span>
-                    <span>${overallGPA10}</span>
+                    <span>${overallGPA10.toFixed(2)}</span>
                 </div>
                 <div class="result-item">
                     <span><strong>Điểm TB hệ 4:</strong></span>
