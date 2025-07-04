@@ -11,9 +11,30 @@
             box-sizing: border-box;
         }
 
+        /* Ẩn thanh cuộn cho tất cả phần tử nhưng vẫn giữ chức năng cuộn */
+        * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        *::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Ẩn thanh cuộn nhưng vẫn giữ chức năng cuộn */
+        html, body {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
         }
 
         body {
@@ -24,6 +45,7 @@
             /* Improve touch experience */
             -webkit-text-size-adjust: 100%;
             -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden; /* Ẩn cuộn ngang */
         }
 
         .container {
@@ -33,6 +55,13 @@
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
+            /* Ẩn thanh cuộn cho container */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
         }
 
         .header {
@@ -297,11 +326,14 @@
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+                overflow-x: hidden; /* Đảm bảo không có cuộn ngang */
             }
             
             .container {
                 margin: 0;
                 border-radius: 10px;
+                max-width: 100%;
+                width: 100%;
             }
             
             .header {
@@ -372,10 +404,13 @@
             .grade-scale {
                 padding: 15px;
                 overflow-x: visible;
+                max-width: 100%;
             }
             
             .grade-table {
                 font-size: 11px;
+                max-width: 100%;
+                table-layout: fixed; /* Đảm bảo bảng không vượt quá container */
             }
             
             .grade-table th,
@@ -481,10 +516,13 @@
             
             .grade-scale {
                 padding: 8px;
+                overflow: hidden;
             }
             
             .grade-table {
                 font-size: 8px;
+                width: 100%;
+                table-layout: fixed;
             }
             
             .grade-table th,
