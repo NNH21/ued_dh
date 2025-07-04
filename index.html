@@ -1314,123 +1314,262 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .back-to-top .arrow {
-                width: 16px;
-                height: 16px;
-            }
-            
-            .back-to-top .arrow::before {
-                width: 2px;
-                height: 10px;
-            }
-            
-            .back-to-top .arrow::after {
-                width: 7px;
-                height: 7px;
-                border-width: 2px;
-            }
-            
-            /* Logo responsive for mobile */
-            .logo-container {
-                top: 10px;
-                right: 15px;
-                padding: 5px 10px;
-            }
-            
-            .logo {
-                width: 24px;
-                height: 24px;
-                font-size: 12px;
-            }
-            
-            .logo img {
-                width: 24px;
-                height: 24px;
-            }
-            
-            .brand-text {
-                font-size: 10px;
-            }
+        /* Formula Section Styling */
+        .formula-container {
+            padding: 20px 0;
         }
 
-        /* Footer styling */
-        .footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 20px 30px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .formula-section {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            opacity: 0.8;
-            margin: 0;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: #a5f3fc;
-        }
-
-        .footer-brand .brand-icon {
-            width: 24px;
-            height: 24px;
+        .formula-title {
+            color: #1e293b;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            overflow: hidden;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .footer-brand .brand-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
+        .formula-box {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
         }
 
-        .footer-brand .brand-icon-fallback {
-            font-size: 12px;
+        .formula-text {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .formula-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .formula-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .formula-note p {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .formula-note ul {
+            margin: 8px 0 0 16px;
+            padding: 0;
+        }
+
+        .formula-note li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        .example-box h4 {
+            color: #1e293b;
+            margin-bottom: 16px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .example-content {
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .example-content p {
+            margin-bottom: 8px;
+        }
+
+        .example-content p:last-child {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .result-highlight {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        /* Ranking Grid */
+        .ranking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .ranking-item {
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
             color: white;
         }
 
+        .ranking-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .ranking-item.excellent {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .ranking-item.good {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+
+        .ranking-item.fair {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .ranking-item.average {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .ranking-item.weak {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
+        .ranking-item.poor {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+        }
+
+        .ranking-score {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .ranking-label {
+            font-size: 1em;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* Responsive cho Formula Section */
         @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
+            .formula-section {
+                padding: 16px;
+                margin-bottom: 24px;
             }
             
-            .footer {
-                padding: 15px 20px;
+            .formula-title {
+                font-size: 1.1em;
+                margin-bottom: 16px;
             }
             
-            .footer-text {
-                font-size: 12px;
+            .formula-box {
+                padding: 16px;
+            }
+            
+            .formula-text {
+                font-size: 1em;
+            }
+            
+            .formula-note {
+                padding: 12px;
+            }
+            
+            .example-box {
+                padding: 16px;
+            }
+            
+            .ranking-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            
+            .ranking-item {
+                padding: 12px;
+            }
+            
+            .ranking-score {
+                font-size: 1em;
+            }
+            
+            .ranking-label {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .formula-container {
+                padding: 10px 0;
+            }
+            
+            .formula-section {
+                padding: 12px;
+                margin-bottom: 16px;
+            }
+            
+            .formula-title {
+                font-size: 1em;
+                margin-bottom: 12px;
+            }
+            
+            .formula-box {
+                padding: 12px;
+            }
+            
+            .formula-text {
+                font-size: 0.9em;
+            }
+            
+            .example-box {
+                padding: 12px;
+            }
+            
+            .example-content {
+                font-size: 0.9em;
+            }
+            
+            .ranking-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 8px;
+            }
+            
+            .ranking-item {
+                padding: 10px;
+            }
+            
+            .ranking-score {
+                font-size: 0.9em;
+            }
+            
+            .ranking-label {
+                font-size: 0.8em;
             }
         }
     </style>
@@ -1480,6 +1619,114 @@
                             <tr class="fail-row"><td>9</td><td>Dưới 4,0</td><td>F</td><td>0,0</td><td>Không đạt</td></tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- Công thức tính điểm -->
+            <div class="section">
+                <h2>📐 Công Thức Tính Điểm</h2>
+                
+                <div class="formula-container">
+                    <div class="formula-section">
+                        <h3 class="formula-title">🎯 1. Công thức tính điểm 1 môn học (Hệ 10)</h3>
+                        <div class="formula-box">
+                            <div class="formula-text">
+                                <strong>Điểm môn học = Chuyên cần × 0.2 + Giữa kì × 0.3 + Cuối kì × 0.5</strong>
+                            </div>
+                            <div class="formula-note">
+                                <p><strong>Trong đó:</strong></p>
+                                <ul>
+                                    <li>Chuyên cần: Có thể là 1 điểm hoặc trung bình của 2 điểm chuyên cần</li>
+                                    <li>Giữa kì: Điểm kiểm tra giữa kì</li>
+                                    <li>Cuối kì: Điểm thi cuối kì</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h4>📝 Ví dụ:</h4>
+                            <div class="example-content">
+                                <p><strong>Môn Toán cao cấp:</strong></p>
+                                <p>• Chuyên cần: 8.5 điểm</p>
+                                <p>• Giữa kì: 7.0 điểm</p>
+                                <p>• Cuối kì: 8.0 điểm</p>
+                                <p><strong>Tính:</strong> 8.5 × 0.2 + 7.0 × 0.3 + 8.0 × 0.5 = 1.7 + 2.1 + 4.0 = <span class="result-highlight">7.8 điểm</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-section">
+                        <h3 class="formula-title">📊 2. Công thức tính điểm trung bình tích lũy (Hệ 10)</h3>
+                        <div class="formula-box">
+                            <div class="formula-text">
+                                <strong>GPA 10 = (Điểm môn 1 × Số tín chỉ 1 + Điểm môn 2 × Số tín chỉ 2 + ...) ÷ Tổng số tín chỉ</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h4>📝 Ví dụ:</h4>
+                            <div class="example-content">
+                                <p><strong>Semester 1:</strong></p>
+                                <p>• Toán cao cấp: 7.8 điểm × 3 tín chỉ = 23.4</p>
+                                <p>• Lập trình C: 8.5 điểm × 4 tín chỉ = 34.0</p>
+                                <p>• Tiếng Anh: 9.0 điểm × 2 tín chỉ = 18.0</p>
+                                <p><strong>Tính:</strong> (23.4 + 34.0 + 18.0) ÷ (3 + 4 + 2) = 75.4 ÷ 9 = <span class="result-highlight">8.38 điểm</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-section">
+                        <h3 class="formula-title">🎓 3. Công thức quy đổi từ Hệ 10 sang Hệ 4</h3>
+                        <div class="formula-box">
+                            <div class="formula-text">
+                                <strong>Bước 1:</strong> Quy đổi điểm từng môn từ hệ 10 sang hệ 4 theo bảng quy đổi
+                            </div>
+                            <div class="formula-text">
+                                <strong>Bước 2:</strong> Tính GPA 4 = (Điểm hệ 4 môn 1 × Số tín chỉ 1 + ...) ÷ Tổng số tín chỉ
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h4>📝 Ví dụ (tiếp theo ví dụ trên):</h4>
+                            <div class="example-content">
+                                <p><strong>Quy đổi sang hệ 4:</strong></p>
+                                <p>• Toán cao cấp: 7.8 → 3.0 (hệ 4) × 3 tín chỉ = 9.0</p>
+                                <p>• Lập trình C: 8.5 → 4.0 (hệ 4) × 4 tín chỉ = 16.0</p>
+                                <p>• Tiếng Anh: 9.0 → 4.0 (hệ 4) × 2 tín chỉ = 8.0</p>
+                                <p><strong>Tính:</strong> (9.0 + 16.0 + 8.0) ÷ 9 = 33.0 ÷ 9 = <span class="result-highlight">3.67 điểm</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-section">
+                        <h3 class="formula-title">🏆 4. Xếp loại học lực dựa trên GPA 4</h3>
+                        <div class="ranking-grid">
+                            <div class="ranking-item excellent">
+                                <div class="ranking-score">3.6 - 4.0</div>
+                                <div class="ranking-label">Xuất Sắc</div>
+                            </div>
+                            <div class="ranking-item good">
+                                <div class="ranking-score">3.2 - 3.59</div>
+                                <div class="ranking-label">Giỏi</div>
+                            </div>
+                            <div class="ranking-item fair">
+                                <div class="ranking-score">2.5 - 3.19</div>
+                                <div class="ranking-label">Khá</div>
+                            </div>
+                            <div class="ranking-item average">
+                                <div class="ranking-score">2.0 - 2.49</div>
+                                <div class="ranking-label">Trung Bình</div>
+                            </div>
+                            <div class="ranking-item weak">
+                                <div class="ranking-score">1.0 - 1.99</div>
+                                <div class="ranking-label">Yếu</div>
+                            </div>
+                            <div class="ranking-item poor">
+                                <div class="ranking-score">0.0 - 0.99</div>
+                                <div class="ranking-label">Kém</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
