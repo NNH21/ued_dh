@@ -675,7 +675,7 @@
             const subjectGPA4 = convertToGPA4(subjectGPA10);
             
             return {
-                gpa10: Math.round(subjectGPA10 * 100) / 100,
+                gpa10: Math.round(subjectGPA10 * 10) / 10,
                 gpa4: subjectGPA4,
                 letterGrade: getLetterGrade(subjectGPA10)
             };
@@ -715,7 +715,7 @@
                 });
             });
             
-            const overallGPA10 = Math.round((totalGPA10 / totalCredits) * 100) / 100;
+            const overallGPA10 = (totalGPA10 / totalCredits).toFixed(2);
             const overallGPA4 = Math.round((totalGPA4 / totalCredits) * 100) / 100;
             const academicRank = getAcademicRank(overallGPA4);
             
