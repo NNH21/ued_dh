@@ -108,6 +108,30 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Logo styling cho center */
+        .logo-container-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 24px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 24px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-container-center:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
         .logo {
             width: 32px;
             height: 32px;
@@ -1078,6 +1102,23 @@
             .summary-value {
                 font-size: 1.2em;
             }
+            
+            /* Logo center responsive cho mobile */
+            .logo-container-center {
+                padding: 8px 16px;
+                margin-bottom: 16px;
+                max-width: 220px;
+            }
+            
+            .logo-container-center .logo {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 360px) {
@@ -1118,6 +1159,23 @@
             input, select {
                 padding: 8px;
                 font-size: 13px;
+            }
+            
+            /* Logo center responsive cho màn hình rất nhỏ */
+            .logo-container-center {
+                padding: 6px 12px;
+                margin-bottom: 12px;
+                max-width: 200px;
+            }
+            
+            .logo-container-center .logo {
+                width: 24px;
+                height: 24px;
+                font-size: 11px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 11px;
             }
         }
 
@@ -1311,6 +1369,23 @@
             
             .brand-text {
                 font-size: 12px;
+            }
+            
+            /* Logo center responsive */
+            .logo-container-center {
+                padding: 10px 20px;
+                margin-bottom: 20px;
+                max-width: 250px;
+            }
+            
+            .logo-container-center .logo {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .logo-container-center .brand-text {
+                font-size: 14px;
             }
         }
 
@@ -1578,8 +1653,8 @@
     <div class="container">
         <div class="main-content">
             <div class="header">
-                <!-- Logo/Brand -->
-                <div class="logo-container">
+                <!-- Logo/Brand - Centered -->
+                <div class="logo-container-center">
                     <div class="logo">
                         <img src="logo.jpg" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <span class="logo-fallback" style="display: none;">📚</span>
